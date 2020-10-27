@@ -1,0 +1,152 @@
+@import "bootstrap/bootstrap.scss";
+body {
+    overflow-x: hidden;
+}
+.info-before-header {
+    height: 40px;
+    background-color: $indigo;
+    
+    .nav {
+        .nav-item {
+            border-left: solid 1px lighten($indigo, 10%);
+        }
+        .nav-link {
+            text-transform: uppercase;
+            font-size: small;
+            color: white;
+        }
+    }
+}
+
+header {
+    border-bottom: solid 1px #EEE;
+ 
+    a:hover {
+        text-decoration: none;
+    }
+    .logo{
+        width: auto;
+        height: 60px;
+    }
+    .title {
+        
+        @include media-breakpoint-down(xs) {
+            font-size: .8em;
+        }
+    }
+    
+}
+main{
+    
+}
+ 
+.link-card-posts{
+    .card-title {
+        color: $primary;
+    }
+    &:hover {
+        text-decoration: none;
+        .card-title {
+            color: $secondary;
+            @include media-breakpoint-up(sm) {
+                font-size: 18px;
+            }
+        }
+    }
+    
+}
+
+.link-card-evento {
+    
+    .card {
+        position: relative;
+        .card-overlay {
+            position: absolute;
+            width: 100%;
+            height: auto;
+            max-height: 60%;
+            bottom: 0;
+            padding: 1em;
+            background-color: rgba(0,0,0,.8) !important;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: .3s;
+        }
+    }
+    
+    &:hover {
+        .card .card-overlay {
+            background-color: rgba(darken($secondary, 30%), .8) !important;
+        } 
+    }
+    
+  
+}
+    
+.molde-title {
+    padding: 8px 16px;
+    background-color: $yellow;
+    box-shadow: 10px 10px 0 0px $indigo;
+}
+
+.molde-box {
+    padding: 8px 16px;
+    background-color: $yellow;
+    box-shadow: 30px 30px 0 0px $indigo;
+}
+
+.molde-aprovacoes {
+    background-image: url("../icons/molde-aprovacoes.svg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 2em;
+    box-sizing: border-box;
+}
+    
+.grid-container-eventos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "primary primary secondary secondary"
+    "primary primary secondary secondary";
+  
+  
+  @include media-breakpoint-down(xs) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "primary primary" "secondary secondary";
+    }
+  
+    .primary { grid-area: primary; }
+    .secondary {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0px 0px;
+        grid-template-areas: "s1 s1 s2 s2"  "s3 s3 s4 s4";
+        grid-area: secondary;
+
+        .s1 { grid-area: s1; }
+        .s2 { grid-area: s2; }
+        .s3 { grid-area: s3; }
+        .s4 { grid-area: s4; }
+    }
+}
+
+
+
+
+
+footer {
+    color: white;
+    background-color: $indigo;
+    
+    .footer-top {
+        background: linear-gradient($indigo,darken($indigo, 10%));
+    }
+    .footer-bottom {
+        background-color: darken($indigo, 10%);
+    }
+}
